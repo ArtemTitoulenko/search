@@ -3,7 +3,7 @@ CC ?= gcc
 CFDEBUG = -pedantic -Wall -g
 
 EXEC = search
-SRCS = search.c util.c hash.c repl.c
+SRCS = search.c util.c hash.c sorted-list.c repl.c
 OBJS = ${SRCS:.c=.o}
 
 all: ${EXEC}

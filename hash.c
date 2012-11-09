@@ -16,7 +16,7 @@ struct file_node * new_file_node(char * file_name) {
   struct file_node * tmp = malloc(sizeof(struct file_node));
 
   tmp->count = 1;
-  tmp->file_name = malloc(strlen(file_name));
+  tmp->file_name = malloc(strlen(file_name) + 1);
   strcpy(tmp->file_name, file_name);
   tmp->next = NULL;
 
@@ -64,9 +64,8 @@ void free_file_node(struct file_node * node) {
 }
 
 void free_file_nodes(struct file_node * node) {
-  struct file_node * head = node->next, * next;
+  struct file_node * head = node, * next;
 
-  // free(node->file_name);
   while(head != NULL) {
     next = head->next;
     free_file_node(head);
@@ -81,10 +80,8 @@ void free_hash_node(struct hash_node * node) {
 }
 
 void free_hash_nodes(struct hash_node * node) {
-  struct hash_node * head = node->next, * next;
+  struct hash_node * head = node, * next;
 
-  //free(node->word);
-  free_file_nodes(node->appears_in);
   while(head != NULL) {
     next = head->next;
     free_hash_node(head);
@@ -256,5 +253,5 @@ void free_hash_table(struct hash_table *table) {
     }
   }
   free(table->storage);
-  // free(table);
+  free(table);
 }
