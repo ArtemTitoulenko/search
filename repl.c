@@ -24,7 +24,7 @@ void run_repl(struct hash_table * table) {
   struct SortedListIterator * iter = NULL;
   void * item = NULL;
 
-  int should_add, matched_items, word_count;
+  int matched_items, word_count;
 
 	printf("> ");
 
