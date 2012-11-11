@@ -1,0 +1,29 @@
+28
+there 4203059 test_index_dir/test1.txt 1 test_index_dir/test2.txt 1 
+is 4203059 test_index_dir/test_dir2/test3.txt 1 test_index_dir/test_dir2/test_dir3/test4.txt 1 
+folder 4203059 test_index_dir/test_dir2/test3.txt 2 
+you 4203059 test_index_dir/test_dir2/test_dir3/test4.txt 1 
+lines 4203059 test_index_dir/test2.txt 1 
+the 4203059 test_index_dir/test_dir2/test_dir3/test4.txt 2 
+for 4203059 test_index_dir/test2.txt 1 
+this 4203059 test_index_dir/test2.txt 2 test_index_dir/test_dir2/test3.txt 1 test_index_dir/test_dir2/test_dir3/test4.txt 2 
+problem 4203059 test_index_dir/test_dir2/test_dir3/test4.txt 1 
+words 4203059 test_index_dir/test1.txt 1 test_index_dir/test2.txt 1 
+meat 4203059 test_index_dir/test_dir2/test_dir3/test4.txt 1 
+file 4203059 test_index_dir/test2.txt 1 test_index_dir/test_dir2/test3.txt 1 
+a 4203059 test_index_dir/test_dir2/test3.txt 1 
+even 4203059 test_index_dir/test2.txt 1 
+i 4203059 test_index_dir/test_dir2/test3.txt 2 
+low 4203059 test_index_dir/test_dir2/test_dir3/test4.txt 1 
+go 4203059 test_index_dir/test_dir2/test_dir3/test4.txt 1 
+hope 4203059 test_index_dir/test_dir2/test3.txt 1 
+text 4203059 test_index_dir/test2.txt 1 
+can 4203059 test_index_dir/test1.txt 1 test_index_dir/test_dir2/test3.txt 1 test_index_dir/test_dir2/test_dir3/test4.txt 1 
+of 4203059 test_index_dir/test_dir2/test3.txt 1 test_index_dir/test_dir2/test_dir3/test4.txt 1 
+look 4203059 test_index_dir/test2.txt 1 
+are 4203059 test_index_dir/test1.txt 1 test_index_dir/test2.txt 1 
+real 4203059 test_index_dir/test_dir2/test_dir3/test4.txt 1 
+it 4203059 test_index_dir/test_dir2/test3.txt 1 
+here 4203059 test_index_dir/test1.txt 1 
+new 4203059 test_index_dir/test2.txt 1 
+that 4203059 test_index_dir/test_dir2/test3.txt 1 
