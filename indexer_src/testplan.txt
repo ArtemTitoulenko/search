@@ -1,7 +1,0 @@
-The test plan for the indexer is quite simple. I create a small
-series of nested directories, each containing a few text files
-and run the program first on the directory, then on one of the
-files. After every run, I check the `index_file` that is created
-and make sure that the words compare to those in the files that
-I created. This ensures that the program is reading all of the
-files and that there is consistency.
