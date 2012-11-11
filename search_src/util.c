@@ -121,25 +121,21 @@ void fill_table_from_index_file(struct hash_table * table, char * file) {
 	}
 
   fscanf(fd, "%i", &num_entries);
-  printf("%i\n", num_entries);
   for (; num_entries != 0; num_entries--) {
-    fscanf(fd, "%s %i ", key, &num_occurances);
-    printf("found key: %s in %i files\n", key, num_occurances);
-
+    fscanf(fd, "%s ", key);
     node = new_hash_node(key);
     hash_table_store(table, key, node);
 
-		for (; num_occurances > 0; num_occurances--) {
-      fscanf (fd, "%s ", file_name, &occurance_count);
+    while ( fscanf (fd, "%s %i ", file_name, &occurance_count) == 2) {
 			file_node = new_file_node(file_name);
 			file_node->count = occurance_count;
 			file_node->next = node->appears_in;
 
-      printf("got file:\n\t%s -> %i\n", file_name, occurance_count);
-      printf("found key: %s in %i files\n", key, num_occurances);
-
 			node->appears_in = file_node;
 		}
+
+    /* woops, we read too far. Lets go back so we don't misread the next word */
+    fseek(fd, -strlen(file_name) - 1, SEEK_CUR);
   }
 
 	fclose (fd);
