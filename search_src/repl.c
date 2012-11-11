@@ -66,7 +66,9 @@ void run_repl(struct hash_table * table) {
 
 				file_node = node->appears_in;
 
-        sieve_list = SLCreate(compareStrings);
+        if (matched_items > 0) {
+          sieve_list = SLCreate(compareStrings);
+        }
 
         while (file_node != NULL) {
           /* if we don't have an initial list, take all the items blindly */
@@ -91,7 +93,6 @@ void run_repl(struct hash_table * table) {
         if (matched_items > 0) {
           SLClear(sl);
           sl = sieve_list;
-          sieve_list = NULL;
         }
 
         matched_items++;
