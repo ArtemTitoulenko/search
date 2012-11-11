@@ -1,3 +1,8 @@
+# Search
+
+This is a tool that, using an index file created with `indexer`, evaluates
+queries and shows the files where words were listed. It's a search engine.
+
 # Design
 
 The search tool is a simple REPL that uses an index file as a source. The
@@ -11,8 +16,17 @@ said word in the hash table, go through every listed file that it had occurred
 in, and add it to a sorted list if the file was not in the list already.
 
 `AND` required the use of a second sorted list. The first word would trigger
-all of it's file occurrences to be added to list 1. Then the second word would
-trigger a function go through ev
+all of it's file occurrences to be added to list 1. Then the second, and every
+subsequent word, would check all the files that the word exists in, and only
+add them to the second list if they exist in the first. That way, only files
+that have contained all the words are remaining.
+
+The main data structures used were a sorted linked list that could become a
+set, a hash table, and several specialized linked lists. The hash table houses
+nodes that can form a linked list, to handle collisions, that each contained
+a pointer to a linked list that listed all of the text files that contained the
+word in their contents. The sorted linked list was used to uniquely add file
+names to then later print out to the user.
 
 # Valgrind Complaints
 
@@ -39,7 +53,9 @@ fscanf calls has reached a plateau.
 Another optimization that comes to mind is using mergesort to sort the various
 linked lists used in the application. For large numbers of strings, there is a
 clear bottleneck in this area. Furthermore, indexing the file names as part of
-the index_file protocol, could lead to faster sorting. Number comparisons are
+the index\_file protocol, could lead to faster sorting. Number comparisons are
 usually much faster than string comparisons.
 
 These optimizations will be kept in mind during development in the near future.
+
+##### Authors: Artem Titoulenko, Jeffrey Adler
