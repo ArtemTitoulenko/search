@@ -1,27 +1,11 @@
-CC ?= gcc
-# CFLAGS ?= -std=c99
-CFDEBUG = -pedantic -Wall -g
-
-EXEC = search
-SRCS = search.c util.c hash.c sorted-list.c repl.c
-OBJS = ${SRCS:.c=.o}
-
-all: ${EXEC}
-
-.c.o:
-	${CC} ${CFLAGS} -o $@ -c $<
-
-${EXEC}: ${OBJS}
-	${CC} ${LDFLAGS} -g -o ${EXEC} ${OBJS}
-
-debug: ${EXEC}
-debug: CC += ${CFDEBUG}
-
-test: debug
-	./${EXEC} test_index
+all:
+	./make.sh make
 
 clean:
-	rm -rf ./*.o
-	rm -rf ./${EXEC}
+	./make.sh clean
 
-.PHONY: all debug clean
+test: all
+	./indexer test_index test_index_dir
+	./search test_index
+
+.PHONY: all

@@ -1,84 +1,29 @@
-<list> there
-test_index_dir/test1.txt 1 test_index_dir/test2.txt 1 
-</list>
-<list> is
-test_index_dir/test_dir2/test3.txt 1 test_index_dir/test_dir2/test_dir3/test4.txt 1 
-</list>
-<list> folder
-test_index_dir/test_dir2/test3.txt 2 
-</list>
-<list> you
-test_index_dir/test_dir2/test_dir3/test4.txt 1 
-</list>
-<list> lines
-test_index_dir/test2.txt 1 
-</list>
-<list> the
-test_index_dir/test_dir2/test_dir3/test4.txt 2 
-</list>
-<list> for
-test_index_dir/test2.txt 1 
-</list>
-<list> this
-test_index_dir/test2.txt 2 test_index_dir/test_dir2/test3.txt 1 test_index_dir/test_dir2/test_dir3/test4.txt 2 
-</list>
-<list> problem
-test_index_dir/test_dir2/test_dir3/test4.txt 1 
-</list>
-<list> words
-test_index_dir/test1.txt 1 test_index_dir/test2.txt 1 
-</list>
-<list> meat
-test_index_dir/test_dir2/test_dir3/test4.txt 1 
-</list>
-<list> file
-test_index_dir/test2.txt 1 test_index_dir/test_dir2/test3.txt 1 
-</list>
-<list> a
-test_index_dir/test_dir2/test3.txt 1 
-</list>
-<list> even
-test_index_dir/test2.txt 1 
-</list>
-<list> i
-test_index_dir/test_dir2/test3.txt 2 
-</list>
-<list> low
-test_index_dir/test_dir2/test_dir3/test4.txt 1 
-</list>
-<list> go
-test_index_dir/test_dir2/test_dir3/test4.txt 1 
-</list>
-<list> hope
-test_index_dir/test_dir2/test3.txt 1 
-</list>
-<list> text
-test_index_dir/test2.txt 1 
-</list>
-<list> can
-test_index_dir/test1.txt 1 test_index_dir/test_dir2/test3.txt 1 test_index_dir/test_dir2/test_dir3/test4.txt 1 
-</list>
-<list> of
-test_index_dir/test_dir2/test3.txt 1 test_index_dir/test_dir2/test_dir3/test4.txt 1 
-</list>
-<list> look
-test_index_dir/test2.txt 1 
-</list>
-<list> are
-test_index_dir/test1.txt 1 test_index_dir/test2.txt 1 
-</list>
-<list> real
-test_index_dir/test_dir2/test_dir3/test4.txt 1 
-</list>
-<list> it
-test_index_dir/test_dir2/test3.txt 1 
-</list>
-<list> here
-test_index_dir/test1.txt 1 
-</list>
-<list> new
-test_index_dir/test2.txt 1 
-</list>
-<list> that
-test_index_dir/test_dir2/test3.txt 1 
-</list>
+28
+there test_index_dir/test1.txt 1 test_index_dir/test2.txt 1 
+is test_index_dir/test_dir2/test3.txt 1 test_index_dir/test_dir2/test_dir3/test4.txt 1 
+folder test_index_dir/test_dir2/test3.txt 2 
+you test_index_dir/test_dir2/test_dir3/test4.txt 1 
+lines test_index_dir/test2.txt 1 
+the test_index_dir/test_dir2/test_dir3/test4.txt 2 
+for test_index_dir/test2.txt 1 
+this test_index_dir/test2.txt 2 test_index_dir/test_dir2/test3.txt 1 test_index_dir/test_dir2/test_dir3/test4.txt 2 
+problem test_index_dir/test_dir2/test_dir3/test4.txt 1 
+words test_index_dir/test1.txt 1 test_index_dir/test2.txt 1 
+meat test_index_dir/test_dir2/test_dir3/test4.txt 1 
+file test_index_dir/test2.txt 1 test_index_dir/test_dir2/test3.txt 1 
+a test_index_dir/test_dir2/test3.txt 1 
+even test_index_dir/test2.txt 1 
+i test_index_dir/test_dir2/test3.txt 2 
+low test_index_dir/test_dir2/test_dir3/test4.txt 1 
+go test_index_dir/test_dir2/test_dir3/test4.txt 1 
+hope test_index_dir/test_dir2/test3.txt 1 
+text test_index_dir/test2.txt 1 
+can test_index_dir/test1.txt 1 test_index_dir/test_dir2/test3.txt 1 test_index_dir/test_dir2/test_dir3/test4.txt 1 
+of test_index_dir/test_dir2/test3.txt 1 test_index_dir/test_dir2/test_dir3/test4.txt 1 
+look test_index_dir/test2.txt 1 
+are test_index_dir/test1.txt 1 test_index_dir/test2.txt 1 
+real test_index_dir/test_dir2/test_dir3/test4.txt 1 
+it test_index_dir/test_dir2/test3.txt 1 
+here test_index_dir/test1.txt 1 
+new test_index_dir/test2.txt 1 
+that test_index_dir/test_dir2/test3.txt 1 
