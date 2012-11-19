@@ -40,6 +40,8 @@ void free_hash_table(struct hash_table * table);
 int lua_hash(char *str);
 struct hash_table* new_hash_table(int size);
 void hash_table_store(struct hash_table * table, char * word, struct hash_node * val);
+void hash_table_delete(struct hash_table * table, char * word);
+void hash_table_resize(struct hash_table * table);
 struct hash_node * hash_table_get(struct hash_table * table, char * word);
 char ** hash_table_get_all_keys(struct hash_table * table);
 
