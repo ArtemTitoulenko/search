@@ -5,7 +5,6 @@ CFDEBUG = -pedantic -Wall -g
 EXEC = search
 SRCS = search.c util.c hash.c sorted-list.c repl.c
 OBJS = ${SRCS:.c=.o}
-BIN_DIR = ../
 
 all: ${EXEC}
 
@@ -14,7 +13,6 @@ all: ${EXEC}
 
 ${EXEC}: ${OBJS}
 	${CC} ${LDFLAGS} -g -o ${EXEC} ${OBJS}
-	mv ${EXEC} ${BIN_DIR}
 
 debug: ${EXEC}
 debug: CC += ${CFDEBUG}

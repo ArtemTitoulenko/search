@@ -35,16 +35,11 @@ int main(int argc, char ** argv) {
   strcat(file_or_dir, "/");
   strcat(file_or_dir, argv[2]);
 
-  getcwd(cwd, sizeof(cwd));
-
-  getcwd(index_file_name, sizeof(index_file_name));
-  strcat(index_file_name, "/");
-  strcat(index_file_name, argv[1]);
-  index_fd = fopen(index_file_name, "w+");
+  index_fd = fopen(argv[1], "w+");
 
   /* check if the index file exists to make a hash table from it */
   if (index_fd == NULL) {
-    fprintf(stderr, "could not open or create an index file %s\n", index_file_name);
+    fprintf(stderr, "could not open or create an index file %s\n", argv[1]);
     return 1;
   }
 
@@ -57,7 +52,7 @@ int main(int argc, char ** argv) {
   stat(file_or_dir, &sb);
 
   if ( S_ISREG(sb.st_mode) ) {
-    index_file(file_or_dir, cwd, table);
+    index_file(file_or_dir, table);
   } else if ( S_ISDIR(sb.st_mode) ) {
     dp = opendir (argv[2]);
     if ((ep = readdir (dp)) != NULL && ep->d_type == DT_DIR) {
@@ -70,7 +65,7 @@ int main(int argc, char ** argv) {
     head = get_files_in_folder(head, cwd);
 
     while (head) {
-      index_file(head->data, cwd, table);
+      index_file(head->data, table);
       head = head->next;
     }
   } else {

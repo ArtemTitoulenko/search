@@ -11,6 +11,7 @@ char * join_path(const char * dir, const char * file);
 struct Node * get_files_in_folder(struct Node * head, const char * pathname);
 void print_hash_keys_and_values(struct hash_table * table);
 void fill_table_from_index_file(struct hash_table * table, char * file);
+int bytes_from_string(char * str);
 
 #endif
 

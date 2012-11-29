@@ -3,9 +3,8 @@ CFLAGS ?= -g # -std=c99
 CFDEBUG = -pedantic -Wall
 
 EXEC = indexer
-SRCS = indexer.c util.c hash.c main.c
+SRCS = indexer.c util.c hash.c main.c parser.c
 OBJS = ${SRCS:.c=.o}
-BIN_DIR = ../
 
 all: ${EXEC}
 
@@ -14,7 +13,6 @@ all: ${EXEC}
 
 ${EXEC}: ${OBJS}
 	${CC} ${LDFLAGS} -o ${EXEC} ${OBJS}
-	mv ${EXEC} ${BIN_DIR}
 
 debug: ${EXEC}
 debug: CC += ${CFDEBUG}
