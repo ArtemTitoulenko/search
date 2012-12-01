@@ -6,6 +6,7 @@
 
 #include "hash.h"
 
+#define HASH_TABLE_RESIZE_PROPORTION 0.7
 #define cmp(a, b) printf("[%s:%s] %i\n", a, b, strcmp(a, b));
 
 /*
@@ -183,6 +184,36 @@ void hash_table_store(struct hash_table * table, char * word, struct hash_node *
     /* insert */
     table->storage[lua_hash(word)%table->key_num] = node;
 		table->key_alloc ++;
+  }
+}
+
+void hash_table_delete(struct hash_table * table, char * word) {
+  int hashed_index = lua_hash(word) % table->key_num;
+  free_hash_node(table->storage[hashed_index]);
+  table->storage[hashed_index] = NULL;
+}
+
+void hash_table_resize(struct hash_table * table) {
+  int i = 0;
+
+  if (((float)table->key_alloc/(float)table->key_num) > HASH_TABLE_RESIZE_PROPORTION) {
+    struct hash_node ** new_storage = calloc(table->key_num * 2, sizeof(struct hash_node *));
+
+    if (table->storage == NULL) {
+      return;
+    }
+
+    table->key_num *= 2;
+
+    /* rehash all elements */
+    for (; i < table->key_num; i++) {
+      if (table->storage[i] != NULL) {
+        *new_storage[lua_hash(table->storage[i]->word) % table->key_num] = *table->storage[i];
+        table->storage[i] = NULL;
+      }
+    }
+
+    table->storage = new_storage;
   }
 }
 

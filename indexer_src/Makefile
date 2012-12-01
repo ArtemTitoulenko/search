@@ -3,7 +3,7 @@ CFLAGS ?= -g # -std=c99
 CFDEBUG = -pedantic -Wall
 
 EXEC = indexer
-SRCS = parser.c indexer.c util.c hash.c main.c
+SRCS = indexer.c util.c hash.c main.c parser.c
 OBJS = ${SRCS:.c=.o}
 
 all: ${EXEC}

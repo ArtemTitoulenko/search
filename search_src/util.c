@@ -12,13 +12,6 @@
 
 #include "list.h"
 
-/*  func: strtolower(string)
-
- convert string into lower case.
- /!/
- string is modified! Malloc a new string.
- /!/
- */
 char *strtolower(char* string) {
     int q;
     for(q = 0; q < strlen(string); q++) {
@@ -139,4 +132,24 @@ void fill_table_from_index_file(struct hash_table * table, char * file) {
   }
 
 	fclose (fd);
+}
+
+int bytes_from_string(char * str) {
+  long num_bytes;
+  char * num = malloc(strlen(str) - 1);
+  char * quant = malloc(3);
+
+  strncpy(num, str, strlen(str) - 2);
+  strncpy(quant, str + strlen(num), 2);
+  num_bytes = atol(num);
+
+  if (strcmp(quant, "KB") == 0) {
+    num_bytes *= 1024;
+  } else if (strcmp(quant, "MB") == 0) {
+    num_bytes *= (1024 * 1024);
+  } else if (strcmp(quant, "GB") == 0) {
+    num_bytes *= (1024 * 1024 * 1024);
+  }
+
+  return num_bytes;
 }
