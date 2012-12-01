@@ -1,4 +1,4 @@
-#include "hash.h"
+#include "cache.h"
 
-void run_repl(struct hash_table * table);
+void run_repl(struct cache * c);
 

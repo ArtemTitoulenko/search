@@ -31,6 +31,8 @@ void free_file_nodes(struct file_node * node);
 void free_hash_node(struct hash_node * node);
 void free_hash_nodes(struct hash_node * node);
 
+int hash_node_get_size(struct hash_node * node);
+
 int hash_node_add_occurance(struct hash_node * node, char * file_name);
 
 /* hash table helpers */

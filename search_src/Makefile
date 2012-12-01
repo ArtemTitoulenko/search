@@ -1,9 +1,10 @@
 CC ?= gcc
 # CFLAGS ?= -std=c99
+CFLAGS ?= -g
 CFDEBUG = -pedantic -Wall -g
 
 EXEC = search
-SRCS = search.c util.c hash.c sorted-list.c repl.c
+SRCS = search.c parser.c cache.c util.c hash.c sorted-list.c repl.c
 OBJS = ${SRCS:.c=.o}
 
 all: ${EXEC}

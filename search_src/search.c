@@ -5,6 +5,7 @@
 #include <errno.h>
 #include <sys/stat.h>
 
+#include "cache.h"
 #include "util.h"
 #include "hash.h"
 #include "repl.h"
@@ -12,7 +13,7 @@
 int main (int argc, char * argv[]) {
 	int status;
 	struct stat st_buf;
-  struct hash_table * table;
+  struct cache * c;
 	char input[2048];
 
   int num_bytes = -1;
@@ -51,18 +52,16 @@ int main (int argc, char * argv[]) {
 		return 1;
 	}
 
-	table = new_hash_table(1024);
+	c = cache_new(argv[argc - 1], num_bytes);
 
-	if (table == NULL) {
+	if (c->table == NULL) {
 		fprintf(stderr, "Couldn't allocate memory for a hash table\n");
 		return 1;
 	}
 
-  /* assuming that the file is the last argument */
-	fill_table_from_index_file(table, argv[argc - 1]);
+  //cache_fill(c);
+	run_repl(c);
 
-	run_repl(table);
-
-	free_hash_table(table);
+  cache_destroy(c);
   return 0;
 }

@@ -26,7 +26,7 @@ void index_file(char * file, struct hash_table * table) {
     free_hash_table(table);
   }
 
-  if ( (word = parser_next_word(parser)) ) {
+  while ( (word = parser_next_word(parser)) ) {
     strtolower(word);
     struct hash_node * tmp = hash_table_get(table, word);
 
@@ -37,6 +37,8 @@ void index_file(char * file, struct hash_table * table) {
       node->appears_in = new_file_node(file);
       hash_table_store(table, word, node);
     }
+
+    free(word);
   }
 
   parser_destroy(parser);

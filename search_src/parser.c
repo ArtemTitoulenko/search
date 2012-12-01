@@ -33,7 +33,7 @@ char * parser_next_word(struct Parser * parser) {
   if (word_length == 0) { return NULL; }
 
   fseek(parser->fd, -(word_length + 1), SEEK_CUR);
-  word = malloc(word_length + 1);
+  word = calloc(1,word_length + 1);
   fread(word, sizeof(char), word_length, parser->fd);
 
   return word;

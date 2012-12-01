@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "hash.h"
+#include "cache.h"
 #include "repl.h"
 #include "sorted-list.h"
 
@@ -13,12 +14,12 @@ int compareStrings(void *p1, void *p2) {
 	return strcmp(s1, s2);
 }
 
-void run_repl(struct hash_table * table) {
+void run_repl(struct cache * c) {
   char input[2048];
 	char word[2048] = "";
 	int pos_input;
 	struct hash_node * node;
-	struct file_node * file_node;
+	struct file_node * fnode;
 
   struct SortedList * sl = NULL, * sieve_list = NULL;
   struct SortedListIterator * iter = NULL;
@@ -34,13 +35,13 @@ void run_repl(struct hash_table * table) {
 
 		if (strncmp(input, "so", 2) == 0) {
 			while (sscanf(input + pos_input, "%s", word) == 1) {
-				node = hash_table_get(table, word);
+				node = cache_get(c, word);
         if (node) {
-          file_node = node->appears_in;
+          fnode = node->appears_in;
 
-          while (file_node != NULL) {
-            SLInsertUnique(sl, file_node->file_name);
-            file_node = file_node->next;
+          while (fnode != NULL) {
+            SLInsertUnique(sl, fnode->file_name);
+            fnode = fnode->next;
           }
         }
 
@@ -59,35 +60,35 @@ void run_repl(struct hash_table * table) {
 			while (sscanf(input + pos_input, "%s", word) == 1) {
         word_count++;
 
-				node = hash_table_get(table, word);
+				node = cache_get(c, word);
         if (node == NULL) {
           break;
         }
 
-				file_node = node->appears_in;
+				fnode = node->appears_in;
 
         if (matched_items > 0) {
           sieve_list = SLCreate(compareStrings);
         }
 
-        while (file_node != NULL) {
+        while (fnode != NULL) {
           /* if we don't have an initial list, take all the items blindly */
           if (matched_items == 0) {
-            SLInsert(sl, file_node->file_name);
+            SLInsert(sl, fnode->file_name);
           /* if we already have a list to AND against, start only keeping items
              that belong to the previous list */
           } else {
             iter = SLCreateIterator(sl);
             while((item = SLNextItem(iter))) {
-              if (sl->cf(item, file_node->file_name) == 0) {
-                SLInsert(sieve_list, file_node->file_name);
+              if (sl->cf(item, fnode->file_name) == 0) {
+                SLInsert(sieve_list, fnode->file_name);
                 break;
               }
             }
             SLDestroyIterator(iter);
           }
 
-          file_node = file_node->next;
+          fnode = fnode->next;
         }
 
         if (matched_items > 0) {

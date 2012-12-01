@@ -90,6 +90,19 @@ void free_hash_nodes(struct hash_node * node) {
   }
 }
 
+int hash_node_get_size(struct hash_node * node) {
+  int size = 8; /* pointer to `appears in` */
+  struct file_node * fnode = node->appears_in;
+
+  size += strlen(node->word);
+  for (; fnode != NULL; fnode = fnode->next) {
+    size += strlen(fnode->file_name);
+    size += 8; /* pointer to `next` */
+  }
+
+  return size;
+}
+
 /*  func: hash_element_add_occurance(element, str)
 
  if str == element->str then it's just another occurance since
