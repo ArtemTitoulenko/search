@@ -6,6 +6,7 @@ function make_tools
 {
   for tool in $TOOLS; do
     make -C "${tool}_src"
+    cp "${tool}_src/${tool}" ./
   done
 }
 
